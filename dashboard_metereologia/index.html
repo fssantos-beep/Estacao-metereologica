@@ -1,0 +1,64 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estação Meteorológica MQTT</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <h1>Estação Meteorológica Tupaciguara</h1>
+
+  <div class="status">
+    Status da estação:
+    <span id="status">Desconectado</span>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h2>Temperatura</h2>
+      <p id="temperatura">0</p>
+    </div>
+
+    <div class="card">
+      <h2>Umidade</h2>
+      <p id="umidade">0</p>
+    </div>
+
+    <div class="card">
+      <h2>Luminosidade</h2>
+      <p id="luminosidade">0</p>
+    </div>
+  </div>
+
+  <div class="alerta">
+    <h2>Alerta</h2>
+    <p id="alerta">Nenhum alerta</p>
+  </div>
+
+  <div class="controle">
+    <h2>Controle MQTT</h2>
+
+    <div class="control-group">
+      <h3>Controle do LED</h3>
+      <button id="btnLedOn" class="control-btn led-on">Ligar LED</button>
+      <button id="btnLedOff" class="control-btn led-off">Desligar LED</button>
+      <span id="ledStatus" class="device-status">Status: Aguardando</span>
+    </div>
+
+    <div class="control-group">
+      <h3>Enviar Mensagem para o ESP32</h3>
+      <input type="text" id="mensagemTexto" placeholder="Digite sua mensagem..." class="mensagem-input">
+      <button id="btnEnviarMensagem" class="control-btn">Enviar Mensagem</button>
+      <div id="ultimaMensagem" class="ultima-mensagem"></div>
+    </div>
+  </div>
+
+  <div class="grafico">
+    <canvas id="tempChart"></canvas>
+  </div>
+
+</body>
+</html>
