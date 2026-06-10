@@ -1,14 +1,19 @@
+/* Fundo com gradiente roxo (mesmo do projeto de tráfego) */
 body {
   font-family: Arial, sans-serif;
-  background: #f4f4f4;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   margin: 20px;
+  min-height: 100vh;
 }
 
+/* Título branco com sombra */
 h1 {
   text-align: center;
-  color: #333;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Container dos cards */
 .cards {
   display: flex;
   gap: 20px;
@@ -16,26 +21,30 @@ h1 {
   flex-wrap: wrap;
 }
 
+/* Cada card - fundo branco com sombra */
 .card {
   background: white;
   padding: 20px;
   width: 200px;
   border-radius: 10px;
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s; /* Animação suave */
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px); /* Levanta ao passar mouse */
 }
 
+/* Valor numérico do sensor */
 .card p {
   font-size: 32px;
   font-weight: bold;
   margin: 10px 0;
+  color: #667eea;
 }
 
+/* Status e Alerta */
 .status,
 .alerta {
   margin: 20px auto;
@@ -43,16 +52,17 @@ h1 {
   padding: 15px;
   border-radius: 10px;
   max-width: 500px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Painel de controle */
 .controle {
   background: white;
   margin: 20px auto;
   padding: 20px;
   border-radius: 10px;
   max-width: 600px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .controle h2 {
@@ -60,21 +70,18 @@ h1 {
   color: #333;
 }
 
+/* Grupo de controle - com borda lateral roxa */
 .control-group {
   padding: 15px;
   background: #f8f9fa;
   border-radius: 8px;
-  border-left: 4px solid #007bff;
+  border-left: 4px solid #667eea;
   margin-bottom: 15px;
 }
 
-.control-group h3 {
-  margin: 0 0 10px 0;
-  color: #555;
-}
-
+/* Botão enviar mensagem */
 .control-btn {
-  background: #007bff;
+  background: #667eea;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -86,9 +93,10 @@ h1 {
 }
 
 .control-btn:hover {
-  background: #0056b3;
+  background: #5a67d8;
 }
 
+/* Botão ligar LED */
 .control-btn.led-on {
   background: #28a745;
 }
@@ -97,6 +105,7 @@ h1 {
   background: #1e7e34;
 }
 
+/* Botão desligar LED */
 .control-btn.led-off {
   background: #dc3545;
 }
@@ -105,6 +114,7 @@ h1 {
   background: #c82333;
 }
 
+/* Campo de input de texto */
 .mensagem-input {
   width: calc(100% - 20px);
   padding: 8px 10px;
@@ -116,9 +126,10 @@ h1 {
 
 .mensagem-input:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: #667eea;
 }
 
+/* Mensagem de feedback (successo/erro) */
 .ultima-mensagem {
   margin-top: 10px;
   padding: 8px;
@@ -145,6 +156,7 @@ h1 {
   border-left: 3px solid #dc3545;
 }
 
+/* Status do LED */
 .device-status {
   display: inline-block;
   margin-left: 10px;
@@ -155,34 +167,17 @@ h1 {
   color: #495057;
 }
 
+/* Gráfico de temperatura */
 .grafico {
   background: white;
   margin-top: 20px;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Status da conexão (verde quando online) */
 #status {
   font-weight: bold;
-  color: #007bff;
-}
-
-.alerta p {
-  margin: 5px 0;
-}
-
-@media (max-width: 768px) {
-  .cards {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    width: 90%;
-  }
-
-  .controle {
-    margin: 20px;
-  }
+  color: #667eea;
 }

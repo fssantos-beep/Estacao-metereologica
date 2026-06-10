@@ -3,44 +3,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estação Meteorológica MQTT</title>
   <link rel="stylesheet" href="style.css">
+  <!-- MQTT: conexão com broker HiveMQ Cloud -->
   <script defer src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  <!-- Chart.js: gráfico de temperatura em tempo real -->
   <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script defer src="script.js"></script>
 </head>
 
 <body>
-  <h1>Estação Meteorológica Tupaciguara</h1>
+  <h1>🌦️ Estação Meteorológica Tupaciguara</h1>
 
+  <!-- Status da conexão MQTT com o ESP32 -->
   <div class="status">
     Status da estação:
     <span id="status">Desconectado</span>
   </div>
 
+  <!-- Cards com dados dos sensores -->
   <div class="cards">
     <div class="card">
       <h2>Temperatura</h2>
       <p id="temperatura">0</p>
     </div>
-
     <div class="card">
       <h2>Umidade</h2>
       <p id="umidade">0</p>
     </div>
-
     <div class="card">
       <h2>Luminosidade</h2>
       <p id="luminosidade">0</p>
     </div>
   </div>
 
+  <!-- Área de alertas (temperatura alta/baixa) -->
   <div class="alerta">
     <h2>Alerta</h2>
     <p id="alerta">Nenhum alerta</p>
   </div>
 
+  <!-- Painel de controle MQTT -->
   <div class="controle">
     <h2>Controle MQTT</h2>
 
+    <!-- Controle do LED do ESP32 -->
     <div class="control-group">
       <h3>Controle do LED</h3>
       <button id="btnLedOn" class="control-btn led-on">Ligar LED</button>
@@ -48,6 +53,7 @@
       <span id="ledStatus" class="device-status">Status: Aguardando</span>
     </div>
 
+    <!-- Envio de mensagens para o ESP32 -->
     <div class="control-group">
       <h3>Enviar Mensagem para o ESP32</h3>
       <input type="text" id="mensagemTexto" placeholder="Digite sua mensagem..." class="mensagem-input">
@@ -56,6 +62,7 @@
     </div>
   </div>
 
+  <!-- Gráfico com histórico das últimas 15 temperaturas -->
   <div class="grafico">
     <canvas id="tempChart"></canvas>
   </div>
