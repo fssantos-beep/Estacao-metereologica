@@ -164,10 +164,14 @@ void loop() {
     String alerta = "{\"alerta\":\"Temperatura Alta\",\"valor\":" + String(temperatura, 0) + "}";
     client.publish("alertas/temperatura", alerta.c_str(), true);
     alertaTemperaturaAtivo = true;
-  } else if (temperatura < 32 && alertaTemperaturaAtivo) {
+  } else if (temperatura < 32 && temperatura >= 20 && alertaTemperaturaAtivo) {
     String alerta = "{\"alerta\":\"Temperatura Normalizada\",\"valor\":" + String(temperatura, 0) + "}";
     client.publish("alertas/temperatura", alerta.c_str(), true);
     alertaTemperaturaAtivo = false;
+  } else if (temperatura < 20 && !alertaTemperaturaAtivo) {
+    String alerta = "{\"alerta\":\"Temperatura Fria\",\"valor\":" + String(temperatura, 0) + "}";
+    client.publish("alertas/temperatura", alerta.c_str(), true);
+    alertaTemperaturaAtivo = true;
   }
 
   Serial.printf("Temp: %.0f°C | Umid: %.0f%% | Lum: %.0f%% | LED: %s\n", 
